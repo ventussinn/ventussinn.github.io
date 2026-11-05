@@ -190,6 +190,10 @@ ul.ticks li::before{content:"";position:absolute;left:0;top:.45em;width:14px;hei
 .foot{font-size:.85rem;color:#fff;text-shadow:0 1px 4px #0008;margin-top:28px}
 
 /* lightbox */
+html,body{overflow-x:clip}
+.photos.tall .vid img{aspect-ratio:9/16}
+.vgroup{font-family:var(--f-hand);color:#fff;text-shadow:0 1px 4px #0008;font-size:1.35rem;text-align:center;margin:22px 0 0}
+dialog.lb video{display:block;width:min(calc(92vw - 24px),calc((92svh - 90px) * 9 / 16));height:auto;aspect-ratio:9/16;margin-inline:auto;background:#000}
 dialog.lb{border:0;padding:0;background:#0000;max-width:min(92vw,980px);max-height:92svh;overflow:visible}
 dialog.lb::backdrop{background:#1d2b10d9;backdrop-filter:blur(3px)}
 dialog.lb figure{margin:0;background:#fff;padding:12px 12px 14px;border-radius:3px;box-shadow:0 20px 50px #0008;animation:lbin .35s cubic-bezier(.3,1.5,.5,1)}
@@ -450,6 +454,28 @@ dialog.lb .close{position:absolute;top:-16px;right:-16px;width:40px;height:40px;
   <div class="ttlinks"><a class="btn alt" href="https://www.tiktok.com/@petsense.kh" target="_blank" rel="noopener">Pet Sense on TikTok</a></div>
 </section>
 
+<!-- OWN CONTENT CREATION & VIDEO EDITING -->
+<section class="wrap board" id="video-editing">
+  <div class="head rv"><h2 class="script h2">Own Content Creation &amp; Video Editing</h2><span class="tag" style="color:#fff;text-shadow:0 1px 4px #0008">tap a video to play</span></div>
+  <p class="vgroup">my own vlogs</p>
+  <div class="photos tall">
+    <a class="ph link tt vid" href="videos/vlog-cafe.mp4" data-cap="café day at Gather Ground"><img src="videos/vlog-cafe.jpg" alt="Video: café day at Gather Ground" loading="lazy"><span class="play"></span><span class="cap">café day at Gather Ground</span></a>
+    <a class="ph link tt vid pinky" href="videos/vlog-angkor.mp4" data-cap="Angkor Wat with friends"><img src="videos/vlog-angkor.jpg" alt="Video: Angkor Wat with friends" loading="lazy"><span class="play"></span><span class="cap">Angkor Wat with friends</span></a>
+    <a class="ph link tt vid" href="videos/vlog-2.mp4" data-cap="shopping day"><img src="videos/vlog-2.jpg" alt="Video: shopping day" loading="lazy"><span class="play"></span><span class="cap">shopping day</span></a>
+  </div>
+  <p class="vgroup">videos for brands</p>
+  <div class="photos tall">
+    <a class="ph link tt vid" href="videos/emart24-drinks.mp4" data-cap="Emart24 drinks"><img src="videos/emart24-drinks.jpg" alt="Video: Emart24 drinks" loading="lazy"><span class="play"></span><span class="cap">Emart24 drinks</span></a>
+    <a class="ph link tt vid pinky" href="videos/emart24-chicken.mp4" data-cap="Emart24 fried chicken"><img src="videos/emart24-chicken.jpg" alt="Video: Emart24 fried chicken" loading="lazy"><span class="play"></span><span class="cap">Emart24 fried chicken</span></a>
+    <a class="ph link tt vid" href="videos/angkor-cake-1.mp4" data-cap="Angkor Cake"><img src="videos/angkor-cake-1.jpg" alt="Video: Angkor Cake" loading="lazy"><span class="play"></span><span class="cap">Angkor Cake</span></a>
+    <a class="ph link tt vid pinky" href="videos/angkor-cake-2.mp4" data-cap="Angkor Cake 2"><img src="videos/angkor-cake-2.jpg" alt="Video: Angkor Cake 2" loading="lazy"><span class="play"></span><span class="cap">Angkor Cake 2</span></a>
+    <a class="ph link tt vid" href="videos/bs-skin-glow.mp4" data-cap="BS Skin Glow &amp; Laser"><img src="videos/bs-skin-glow.jpg" alt="Video: BS Skin Glow &amp; Laser" loading="lazy"><span class="play"></span><span class="cap">BS Skin Glow &amp; Laser</span></a>
+    <a class="ph link tt vid pinky" href="videos/chuby-and-guys.mp4" data-cap="Chuby &amp; Guys fashion"><img src="videos/chuby-and-guys.jpg" alt="Video: Chuby &amp; Guys fashion" loading="lazy"><span class="play"></span><span class="cap">Chuby &amp; Guys fashion</span></a>
+    <a class="ph link tt vid" href="videos/palm-coffee.mp4" data-cap="Palm Coffee Pchum Ben gifts"><img src="videos/palm-coffee.jpg" alt="Video: Palm Coffee Pchum Ben gifts" loading="lazy"><span class="play"></span><span class="cap">Palm Coffee Pchum Ben gifts</span></a>
+    <a class="ph link tt vid pinky" href="videos/khmer-sausage.mp4" data-cap="Khmer sausage, Meanchey"><img src="videos/khmer-sausage.jpg" alt="Video: Khmer sausage, Meanchey" loading="lazy"><span class="play"></span><span class="cap">Khmer sausage, Meanchey</span></a>
+  </div>
+</section>
+
 <!-- DESIGN -->
 <section class="wrap board" data-g="gd" id="design">
   <div class="head rv"><h2 class="script h2">Graphic Design</h2><span class="tag" style="color:#fff;text-shadow:0 1px 4px #0008">promotion posters for TERRA</span></div>
@@ -545,6 +571,12 @@ dialog.lb .close{position:absolute;top:-16px;right:-16px;width:40px;height:40px;
 </section>
 </main>
 
+<dialog class="lb" id="vb" aria-label="Video player">
+  <figure><video id="vb-vid" controls playsinline preload="metadata"></video><figcaption id="vb-cap"></figcaption></figure>
+  <button class="ctl prev" id="vb-prev" type="button" aria-label="Previous video">‹</button>
+  <button class="ctl next" id="vb-next" type="button" aria-label="Next video">›</button>
+  <button class="close" id="vb-close" type="button" aria-label="Close">×</button>
+</dialog>
 <dialog class="lb" id="lb" aria-label="Photo viewer">
   <figure><img id="lb-img" alt=""><figcaption id="lb-cap"></figcaption></figure>
   <button class="ctl prev" id="lb-prev" type="button" aria-label="Previous photo">‹</button>
@@ -581,5 +613,21 @@ dialog.lb .close{position:absolute;top:-16px;right:-16px;width:40px;height:40px;
 })();
 </script>
 
+<script>
+(function(){
+  var vb=document.getElementById('vb'),v=document.getElementById('vb-vid'),cap=document.getElementById('vb-cap'),list=Array.prototype.slice.call(document.querySelectorAll('a.vid')),i=0;
+  if(!vb||!list.length)return;
+  function show(){var a=list[i];v.poster=a.querySelector('img').src;v.src=a.getAttribute('href');cap.textContent=a.getAttribute('data-cap')||'';var p=v.play();if(p&&p.catch)p.catch(function(){})}
+  function step(d){i=(i+d+list.length)%list.length;show()}
+  function stop(){v.pause();v.removeAttribute('src');v.load()}
+  list.forEach(function(a,k){a.addEventListener('click',function(e){e.preventDefault();i=k;show();try{vb.showModal()}catch(err){vb.setAttribute('open','')}})});
+  document.getElementById('vb-prev').onclick=function(){step(-1)};
+  document.getElementById('vb-next').onclick=function(){step(1)};
+  document.getElementById('vb-close').onclick=function(){vb.close();vb.removeAttribute('open')};
+  vb.addEventListener('click',function(e){if(e.target===vb)vb.close()});
+  vb.addEventListener('close',stop);
+  vb.addEventListener('keydown',function(e){if(e.key==='ArrowLeft')step(-1);if(e.key==='ArrowRight')step(1)});
+})();
+</script>
 </body>
 </html>
